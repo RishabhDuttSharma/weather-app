@@ -12,13 +12,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_large">
 
         <TextView
             android:id="@+id/tv_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{forecastItem.temperature}"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/text_size_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,11 +30,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
             android:text="@{forecastItem.date}"
+            android:textColor="@color/text_color_medium"
+            android:textSize="@dimen/text_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_temperature"
-            tools:text="20C" />
+            tools:text="28-02-2020" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

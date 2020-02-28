@@ -50,4 +50,10 @@ class WeatherInfoBinder : BaseObservable() {
             field = value
             notifyPropertyChanged(BR.multiViewState)
         }
+    @get:Bindable
+    var weeklyItemsLoading: Boolean = false
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.weeklyItemsLoading)
+        }
 }

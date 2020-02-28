@@ -14,8 +14,6 @@ class WeatherInfoFragment :
         getViewModel<WeatherInfoViewModel>().apply {
             binding.viewModel = this
             infoBinder.countryCode = AppConstant.COUNTRY_CODE_INDIA
-        }.also {
-            it.onZipCodeSubmitted("122018")
         }
     }
 }

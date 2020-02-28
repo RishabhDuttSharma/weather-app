@@ -144,6 +144,26 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_temperature_description" />
 
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:itemBinding="@{viewModel.forecastItemBinding}"
+                    app:items="@{viewModel.forecastItems}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="@id/tv_weekly"
+                    app:layout_constraintTop_toBottomOf="@id/tv_weekly"
+                    tools:listitem="@layout/adapter_forecast_item" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:visibility="@{viewModel.infoBinder.weeklyItemsLoading}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_weekly" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.kennyc.view.MultiStateView>
     </androidx.constraintlayout.widget.ConstraintLayout>
