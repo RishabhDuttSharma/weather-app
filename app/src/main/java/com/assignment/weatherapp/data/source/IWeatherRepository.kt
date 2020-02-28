@@ -14,6 +14,6 @@ interface IWeatherRepository {
     /**
      * Retrieves weather data from Web-Api-Server
      */
-    suspend fun getCurrentWeatherData(zipCode: String): Result<List<WeatherInfo>>
+    suspend fun getCurrentWeatherData(zipCode: String): Result<WeatherInfo>
 
 }

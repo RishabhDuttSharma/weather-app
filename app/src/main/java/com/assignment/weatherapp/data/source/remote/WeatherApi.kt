@@ -16,5 +16,5 @@ interface WeatherApi {
     suspend fun getZipCodeWeatherData(
         @Query("zip") zipcode: String,
         @Query("appid") appid: String = BuildConfig.OPEN_WEATHER_MAP_API_KEY
-    ): List<WeatherInfo>
+    ): WeatherInfo
 }

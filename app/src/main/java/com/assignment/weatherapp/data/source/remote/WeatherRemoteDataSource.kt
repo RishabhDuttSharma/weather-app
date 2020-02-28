@@ -13,7 +13,7 @@ import timber.log.Timber
  */
 class WeatherRemoteDataSource(private val weatherApi: WeatherApi) : WeatherDataSource {
 
-    override suspend fun getCurrentWeatherData(zipCode: String): Result<List<WeatherInfo>> = try {
+    override suspend fun getCurrentWeatherData(zipCode: String): Result<WeatherInfo> = try {
         // attempt web-api-call, and map to success-result
         Result.Success(weatherApi.getZipCodeWeatherData(zipCode))
     } catch (ex: Exception) {

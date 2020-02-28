@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,16 +11,60 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_24dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
+            android:id="@+id/iv_weather_icon"
+            weatherIcon="@{viewModel.infoBinder.icon}"
             android:layout_width="@dimen/weather_icon_size"
             android:layout_height="@dimen/weather_icon_size"
+            android:layout_marginStart="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_24dp"
-            android:src=""
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:contentDescription="@string/cd_weather_icon"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_weather"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_current_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24dp"
+            android:text="@{viewModel.infoBinder.currentTemperatureInC}"
+            android:textColor="@color/text_color_dark"
+            android:textSize="@dimen/text_size_temperature_title"
+            app:layout_constraintStart_toStartOf="@id/iv_weather_icon"
+            app:layout_constraintTop_toBottomOf="@id/iv_weather_icon"
+            tools:text="40°C" />
+
+        <TextView
+            android:id="@+id/tv_temperature_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@{viewModel.infoBinder.currentTemperatureDescription}"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintStart_toStartOf="@id/tv_current_temperature"
+            app:layout_constraintTop_toBottomOf="@id/tv_current_temperature"
+            tools:text="Partly Cloudy" />
+
+        <TextView
+            android:id="@+id/tv_temperature_min_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:text="@{viewModel.infoBinder.temperatureMinMax}"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_temperature_description"
+            app:layout_constraintStart_toEndOf="@id/tv_temperature_description"
+            tools:text="18 / 23 °C" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

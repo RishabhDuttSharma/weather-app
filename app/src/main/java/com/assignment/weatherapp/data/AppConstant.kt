@@ -1,5 +1,9 @@
 package com.assignment.weatherapp.data
 
+import androidx.annotation.IntDef
+import com.assignment.weatherapp.data.TruncateDecimalPlaces.Companion.DEFAULT
+import com.assignment.weatherapp.data.TruncateDecimalPlaces.Companion.TEMPERATURE
+
 /**
  *
  * Developer: Rishabh Dutt Sharma
@@ -7,4 +11,16 @@ package com.assignment.weatherapp.data
  */
 object AppConstant {
 
+    const val ABSOLUTE_ZERO_DEGREE_KELVIN = 273.15
+
+    const val TEMPERATURE_IN_C = "°C"
+
+}
+
+@IntDef(DEFAULT, TEMPERATURE)
+annotation class TruncateDecimalPlaces {
+    companion object {
+        const val DEFAULT = 2
+        const val TEMPERATURE = 1
+    }
 }

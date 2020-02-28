@@ -10,5 +10,5 @@ import com.assignment.weatherapp.data.WeatherInfo
  */
 interface WeatherDataSource {
 
-    suspend fun getCurrentWeatherData(zipCode: String): Result<List<WeatherInfo>>
+    suspend fun getCurrentWeatherData(zipCode: String): Result<WeatherInfo>
 }

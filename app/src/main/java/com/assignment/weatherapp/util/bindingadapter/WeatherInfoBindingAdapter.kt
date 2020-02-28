@@ -1,8 +1,9 @@
 package com.assignment.weatherapp.util.bindingadapter
 
-import androidx.appcompat.widget.AppCompatImageView
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.assignment.weatherapp.BuildConfig
+import com.assignment.weatherapp.R
+import com.assignment.weatherapp.util.Utils
 import com.squareup.picasso.Picasso
 
 /**
@@ -11,7 +12,11 @@ import com.squareup.picasso.Picasso
  * Dated: 2/28/2020
  */
 
-@BindingAdapter("icon")
-fun bindWeatherIcon(imageView: AppCompatImageView, icon: String) {
-    Picasso.get().load("${BuildConfig.BASE_URL}/img/w/${icon}.png").into(imageView)
+@BindingAdapter("weatherIcon")
+fun bindWeatherIcon(imageView: ImageView, weatherIcon: String?) {
+    with(Picasso.get()) {
+        if (weatherIcon != null) {
+            load(Utils.getWeatherIconUrl(weatherIcon))
+        } else load(R.drawable.ic_weather)
+    }.placeholder(R.drawable.ic_weather).into(imageView)
 }
