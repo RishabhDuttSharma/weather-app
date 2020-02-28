@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../Assignment/app/src/test/java/com/nagarro/assignment/ui/todolist/TodoListViewModelTest.kt">
           <value>
             <set />
@@ -254,6 +259,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_error_outline_black_24dp.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/adapter_forecast_item.xml">
           <value>
             <set />
           </value>

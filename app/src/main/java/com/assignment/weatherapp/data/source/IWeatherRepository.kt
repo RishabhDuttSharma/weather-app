@@ -2,6 +2,7 @@ package com.assignment.weatherapp.data.source
 
 import com.assignment.weatherapp.data.Result
 import com.assignment.weatherapp.data.WeatherInfo
+import com.assignment.weatherapp.data.WeeklyForecast
 
 
 /**
@@ -16,4 +17,8 @@ interface IWeatherRepository {
      */
     suspend fun getCurrentWeatherData(zipCode: String): Result<WeatherInfo>
 
+    /**
+     * Retrieves weekly forecast data
+     */
+    suspend fun getWeeklyForecastData(zipCode: String): Result<WeeklyForecast>
 }

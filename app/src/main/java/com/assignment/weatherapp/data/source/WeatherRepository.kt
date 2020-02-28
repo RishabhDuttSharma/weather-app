@@ -9,4 +9,7 @@ class WeatherRepository(private val dataSource: WeatherDataSource) : IWeatherRep
 
     override suspend fun getCurrentWeatherData(zipCode: String) =
         dataSource.getCurrentWeatherData(zipCode)
+
+    override suspend fun getWeeklyForecastData(zipCode: String) =
+        dataSource.getForecastWeeklyData(zipCode)
 }

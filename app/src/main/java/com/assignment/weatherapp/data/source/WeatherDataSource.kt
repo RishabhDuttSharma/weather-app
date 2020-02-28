@@ -2,6 +2,7 @@ package com.assignment.weatherapp.data.source
 
 import com.assignment.weatherapp.data.Result
 import com.assignment.weatherapp.data.WeatherInfo
+import com.assignment.weatherapp.data.WeeklyForecast
 
 /**
  *
@@ -11,4 +12,6 @@ import com.assignment.weatherapp.data.WeatherInfo
 interface WeatherDataSource {
 
     suspend fun getCurrentWeatherData(zipCode: String): Result<WeatherInfo>
+
+    suspend fun getForecastWeeklyData(zipCode: String): Result<WeeklyForecast>
 }

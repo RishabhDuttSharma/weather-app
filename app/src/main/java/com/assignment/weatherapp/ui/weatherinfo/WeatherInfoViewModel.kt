@@ -71,5 +71,7 @@ class WeatherInfoViewModel @Inject constructor(
         infoBinder.multiViewState = MultiStateView.ViewState.ERROR
     }
 
-    fun onZipCodeSubmitted(zipCode: String) = loadWeatherInfo(zipCode)
+    fun onZipCodeSubmitted(zipCode: String) {
+        loadWeatherInfo(zipCode)
+    }
 }

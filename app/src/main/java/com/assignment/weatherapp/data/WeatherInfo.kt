@@ -68,3 +68,8 @@ data class SystemInfo(
     @field:Json(name = "sunset") val sunset: Long
 )
 
+data class ForecastItem(
+    val temperature: String,
+    val date: String
+)
+
