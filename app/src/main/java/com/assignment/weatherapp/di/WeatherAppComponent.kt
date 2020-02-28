@@ -20,4 +20,4 @@ import dagger.android.support.AndroidSupportInjectionModule
         TodoDataModule::class
     ]
 )
-interface TodoAppComponent : AndroidInjector<WeatherApp>
+interface WeatherAppComponent : AndroidInjector<WeatherApp>

@@ -1,5 +1,6 @@
 package com.assignment.weatherapp
 
+import com.assignment.weatherapp.di.DaggerWeatherAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
@@ -11,8 +12,8 @@ import timber.log.Timber
  */
 class WeatherApp : DaggerApplication() {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> = TODO()
-//        DaggerWea.builder().appModule(AppModule(this)).build()
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
+        DaggerWeatherAppComponent.builder().build()
 
     override fun onCreate() {
         super.onCreate()
