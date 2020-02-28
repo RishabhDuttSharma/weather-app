@@ -1,4 +1,4 @@
-package com.nagarro.assignment.util.viewmodel
+package com.assignment.weatherapp.util.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
