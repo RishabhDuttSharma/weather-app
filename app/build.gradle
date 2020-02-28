@@ -1,0 +1,144 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+def typeString = "String"
+def typeLong = "Long"
+
+def fieldBaseUrl = "BASE_URL"
+def fieldOpenWeatherMapApiKey = "OPEN_WEATHER_MAP_API_KEY"
+def fieldTimeout = "TIMEOUT_MILLIS"
+
+android {
+
+    compileSdkVersion rootProject.compile_sdk_version
+
+    defaultConfig {
+
+        applicationId "com.assignment.weatherapp"
+
+        minSdkVersion rootProject.min_sdk_version
+        targetSdkVersion rootProject.target_sdk_version
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // java compile-options
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // kotlin jvm target
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    // enable data-binding
+    dataBinding {
+        enabled = true
+        enabledForTests = true
+    }
+
+    // Always show the result of every unit test when running via command line, even if it passes.
+    testOptions.unitTests {
+        includeAndroidResources = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'server'
+
+    productFlavors {
+
+        assignment {
+            dimension 'server'
+            buildConfigField(typeString, fieldBaseUrl, '"https://api.openweathermap.org/"')
+            buildConfigField(typeString, fieldOpenWeatherMapApiKey, '"76ad8d959216a5c621c15a7f2176bd93"')
+            buildConfigField(typeLong, fieldTimeout, '10_000L')
+
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:'
+
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+
+    implementation "androidx.cardview:cardview:$card_view_version"
+
+    implementation "androidx.fragment:fragment-ktx:$fragment_kotlin_version"
+
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // Kotlin Extensions and Co-routines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+    // Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    // logging
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+
+    // dagger
+    api "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    api "com.google.dagger:dagger-android:$dagger_version"
+    api "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    // timber
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // binding collection adapter
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:$binding_collection_version"
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:$binding_collection_version"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrest_version"
+    testImplementation "androidx.arch.core:core-testing:$arch_testing_version"
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:$androidx_test_core_version"
+    testImplementation "androidx.test.ext:junit:$androidx_test_ext_kotlin_runner_version"
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_kotlin_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+}
