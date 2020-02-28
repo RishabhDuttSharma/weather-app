@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.assignment.weatherapp.ui.weatherinfo.WeatherInfoViewModel" />
@@ -159,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_large"
-                    android:visibility="@{viewModel.infoBinder.weeklyItemsLoading}"
+                    android:visibility="@{viewModel.infoBinder.weeklyItemsLoading==true?View.VISIBLE:View.GONE}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_weekly" />
