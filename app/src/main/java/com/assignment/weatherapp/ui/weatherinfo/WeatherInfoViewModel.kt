@@ -1,7 +1,9 @@
 package com.assignment.weatherapp.ui.weatherinfo
 
+import androidx.lifecycle.viewModelScope
 import com.assignment.weatherapp.data.source.IWeatherRepository
 import com.assignment.weatherapp.ui.BaseViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -14,4 +16,10 @@ class WeatherInfoViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val todoBinder = WeatherInfoBinder()
+
+    fun loadWeatherInfo(zipCode: String) {
+        viewModelScope.launch {
+            repository.getCurrentWeatherData(zipCode)
+        }
+    }
 }

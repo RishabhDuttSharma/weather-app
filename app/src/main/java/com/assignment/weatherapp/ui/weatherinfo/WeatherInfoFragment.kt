@@ -12,8 +12,8 @@ class WeatherInfoFragment :
         // retrieve view-model
         getViewModel<WeatherInfoViewModel>().apply {
             binding.viewModel = this
-        }.let {
-            // do something
+        }.run {
+            loadWeatherInfo("94040,us")
         }
     }
 }

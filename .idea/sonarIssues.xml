@@ -118,6 +118,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/assignment/weatherapp/di/WeatherAppComponent.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/assignment/weatherapp/di/module/ApiModule.kt">
           <value>
             <set />
@@ -189,6 +194,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/assignment/weatherapp/ui/weatherinfo/WeatherInfoViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/assignment/weatherapp/util/Utils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/assignment/weatherapp/util/bindingadapter/WeatherInfoBindingAdapter.kt">
           <value>
             <set />
           </value>
