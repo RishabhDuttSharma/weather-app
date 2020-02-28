@@ -25,7 +25,8 @@ class WeatherInfoViewModel @Inject constructor(
 
     private fun loadWeatherInfo(zipCode: String) {
         viewModelScope.launch {
-            repository.getCurrentWeatherData("$zipCode,${infoBinder.countryCode}}")
+            val zipCodeWithCountry = zipCode + "," + infoBinder.countryCode
+            repository.getCurrentWeatherData(zipCodeWithCountry)
                 .onResponse(::handleSuccess, ::handleError)
         }
     }
