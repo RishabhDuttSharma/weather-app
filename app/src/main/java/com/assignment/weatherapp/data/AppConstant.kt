@@ -15,6 +15,7 @@ object AppConstant {
 
     const val TEMPERATURE_IN_C = "°C"
 
+    const val COUNTRY_CODE_INDIA = "IN"
 }
 
 @IntDef(DEFAULT, TEMPERATURE)

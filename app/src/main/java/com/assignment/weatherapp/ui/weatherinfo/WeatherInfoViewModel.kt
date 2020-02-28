@@ -23,11 +23,13 @@ class WeatherInfoViewModel @Inject constructor(
 
     val infoBinder = WeatherInfoBinder()
 
-    fun loadWeatherInfo(zipCode: String) {
+    private fun loadWeatherInfo(zipCode: String) {
         viewModelScope.launch {
-            repository.getCurrentWeatherData(zipCode).onResponse(::handleSuccess)
+            repository.getCurrentWeatherData("$zipCode,${infoBinder.countryCode}}")
+                .onResponse(::handleSuccess, ::handleError)
         }
     }
+
 
     private fun handleSuccess(weatherInfo: WeatherInfo) {
         infoBinder.icon = weatherInfo.weather.firstOrNull()?.icon
@@ -42,12 +44,21 @@ class WeatherInfoViewModel @Inject constructor(
                     .toTruncatedDecimalString(TruncateDecimalPlaces.TEMPERATURE)
                     .toTemperatureInC()
 
-                val minTempInC = convert(tempInfo.tempMin).toInt()
-                val maxTempInC = convert(tempInfo.tempMax).toInt()
+                val minTempInC = convert(tempInfo.tempMin)
+                    .toTruncatedDecimalString(TruncateDecimalPlaces.TEMPERATURE)
 
-                infoBinder.temperatureMinMax = String.format("%d / %d ", minTempInC, maxTempInC)
+                val maxTempInC = convert(tempInfo.tempMax)
+                    .toTruncatedDecimalString(TruncateDecimalPlaces.TEMPERATURE)
+
+                infoBinder.temperatureMinMax = String.format("%s / %s ", minTempInC, maxTempInC)
                     .toTemperatureInC()
             }
         }
     }
+
+    private fun handleError(error: Exception) {
+        error.printStackTrace()
+    }
+
+    fun onZipCodeSubmitted(zipCode: String) = loadWeatherInfo(zipCode)
 }

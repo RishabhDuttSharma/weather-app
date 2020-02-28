@@ -2,6 +2,7 @@ package com.assignment.weatherapp.ui.weatherinfo
 
 import android.os.Bundle
 import com.assignment.weatherapp.R
+import com.assignment.weatherapp.data.AppConstant
 import com.assignment.weatherapp.databinding.FragmentWeatherInfoBinding
 import com.assignment.weatherapp.ui.BaseFragment
 
@@ -12,8 +13,7 @@ class WeatherInfoFragment :
         // retrieve view-model
         getViewModel<WeatherInfoViewModel>().apply {
             binding.viewModel = this
-        }.run {
-            loadWeatherInfo("94040,us")
+            infoBinder.countryCode = AppConstant.COUNTRY_CODE_INDIA
         }
     }
 }

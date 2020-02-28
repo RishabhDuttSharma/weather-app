@@ -83,8 +83,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:'
 
     implementation "androidx.appcompat:appcompat:$appcompat_version"
-
-    implementation "androidx.cardview:cardview:$card_view_version"
+    // google material design library
+    implementation "com.google.android.material:material:$material_design_version"
 
     implementation "androidx.fragment:fragment-ktx:$fragment_kotlin_version"
 
@@ -93,10 +93,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
