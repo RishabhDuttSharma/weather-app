@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="weatherInfo"
-            type="com.assignment.weatherapp.data.WeatherInfo" />
+            name="forecastItem"
+            type="com.assignment.weatherapp.data.ForecastItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
             android:id="@+id/tv_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{weatherInfo.main.temp}"
+            android:text="@{forecastItem.temperature}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{weatherInfo.main.}"
+            android:text="@{forecastItem.date}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_temperature"
