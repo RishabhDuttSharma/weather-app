@@ -9,6 +9,7 @@ import com.assignment.weatherapp.util.KelvinToCelciusConverter
 import com.assignment.weatherapp.util.ext.onResponse
 import com.assignment.weatherapp.util.ext.toTemperatureInC
 import com.assignment.weatherapp.util.ext.toTruncatedDecimalString
+import com.kennyc.view.MultiStateView
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,6 +26,9 @@ class WeatherInfoViewModel @Inject constructor(
 
     private fun loadWeatherInfo(zipCode: String) {
         viewModelScope.launch {
+            // display loading view
+            infoBinder.multiViewState = MultiStateView.ViewState.LOADING
+
             val zipCodeWithCountry = zipCode + "," + infoBinder.countryCode
             repository.getCurrentWeatherData(zipCodeWithCountry)
                 .onResponse(::handleSuccess, ::handleError)
@@ -33,6 +37,9 @@ class WeatherInfoViewModel @Inject constructor(
 
 
     private fun handleSuccess(weatherInfo: WeatherInfo) {
+        // display content view
+        infoBinder.multiViewState = MultiStateView.ViewState.CONTENT
+
         infoBinder.icon = weatherInfo.weather.firstOrNull()?.icon
 
         weatherInfo.main.let { tempInfo ->
@@ -59,6 +66,9 @@ class WeatherInfoViewModel @Inject constructor(
 
     private fun handleError(error: Exception) {
         error.printStackTrace()
+
+        // display error view
+        infoBinder.multiViewState = MultiStateView.ViewState.ERROR
     }
 
     fun onZipCodeSubmitted(zipCode: String) = loadWeatherInfo(zipCode)

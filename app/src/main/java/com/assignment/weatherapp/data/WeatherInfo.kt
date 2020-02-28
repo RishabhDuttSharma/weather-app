@@ -7,6 +7,11 @@ import com.squareup.moshi.Json
  * Developer: Rishabh Dutt Sharma
  * Dated: 2/28/2020
  */
+
+data class WeeklyForecast(
+    @field:Json(name = "list") val list: List<WeatherInfo>
+)
+
 data class WeatherInfo(
     @field:Json(name = "coord") val coordinates: Coordinates,
     @field:Json(name = "weather") val weather: List<Weather>,

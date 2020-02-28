@@ -3,7 +3,7 @@ package com.assignment.weatherapp.ui.weatherinfo
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
-import com.assignment.weatherapp.data.AppConstant
+import com.kennyc.view.MultiStateView
 
 /**
  *
@@ -41,5 +41,13 @@ class WeatherInfoBinder : BaseObservable() {
         set(value) {
             field = value
             notifyPropertyChanged(BR.temperatureMinMax)
+        }
+
+
+    @get:Bindable
+    var multiViewState: MultiStateView.ViewState = MultiStateView.ViewState.EMPTY
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.multiViewState)
         }
 }

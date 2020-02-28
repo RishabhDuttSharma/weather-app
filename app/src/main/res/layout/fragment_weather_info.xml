@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_zip_code"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:maxLines="1"
                 android:scrollHorizontally="true"
                 android:textColor="@color/text_color_medium"
@@ -64,13 +64,15 @@
 
         <com.kennyc.view.MultiStateView
             android:id="@+id/multiStateView"
+            viewState="@{viewModel.infoBinder.multiViewState}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/til_zip_code"
             app:msv_emptyView="@layout/layout_empty"
             app:msv_errorView="@layout/layout_error"
             app:msv_loadingView="@layout/layout_loading"
-            app:msv_viewState="error">
+            tools:msv_viewState="content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -128,6 +130,20 @@
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_temperature_description"
                     app:layout_constraintStart_toEndOf="@id/tv_temperature_description"
                     tools:text="18 / 23 °C" />
+
+
+                <TextView
+                    android:id="@+id/tv_weekly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_24dp"
+                    android:text="@string/label_weekly_forecast"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintStart_toStartOf="@id/tv_current_temperature"
+                    app:layout_constraintTop_toBottomOf="@id/tv_temperature_description" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.kennyc.view.MultiStateView>
     </androidx.constraintlayout.widget.ConstraintLayout>

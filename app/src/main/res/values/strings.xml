@@ -6,4 +6,5 @@
     <string name="label_country_code_india">IN</string>
     <string name="error_something_went_wrong">Something went wrong!</string>
     <string name="message_please_wait">Please wait...</string>
+    <string name="label_weekly_forecast">Weekly Forecast</string>
 </resources>
