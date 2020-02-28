@@ -9,7 +9,7 @@ import javax.inject.Provider
 /**
  *
  * Developer: Rishabh Dutt Sharma
- * Dated: 2/14/2020
+ * Dated: 2/28/2020
  */
 class DaggerViewModelFactory @Inject constructor(
     private val viewModelProvidersMap: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>

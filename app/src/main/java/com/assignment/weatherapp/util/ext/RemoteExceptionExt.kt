@@ -6,7 +6,7 @@ import java.net.UnknownHostException
 /**
  *
  * Developer: Rishabh Dutt Sharma
- * Dated: 2/20/2020
+ * Dated: 2/28/2020
  */
 
 fun <T> Exception.toErrorResult() = Result.Error<T>(

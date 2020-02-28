@@ -10,7 +10,7 @@ import dagger.android.support.DaggerAppCompatActivity
 /**
  *
  * Developer: Rishabh Dutt Sharma
- * Dated: 2/17/2020
+ * Dated: 2/28/2020
  */
 @SuppressLint("Registered")
 abstract class BaseActivity<VDB : ViewDataBinding> constructor(

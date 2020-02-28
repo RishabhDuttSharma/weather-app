@@ -8,7 +8,7 @@ import retrofit2.http.Query
 /**
  *
  * Developer: Rishabh Dutt Sharma
- * Dated: 2/13/2020
+ * Dated: 2/28/2020
  */
 interface WeatherApi {
 
