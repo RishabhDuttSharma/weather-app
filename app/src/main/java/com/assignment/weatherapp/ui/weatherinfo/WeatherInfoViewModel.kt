@@ -58,6 +58,7 @@ class WeatherInfoViewModel @Inject constructor(
     }
 
     private fun handleForecastSuccess(weeklyForecast: WeeklyForecast) {
+        infoBinder.weeklyItemsLoading = false
 
         val forecastItemsList = weeklyForecast.list.map {
             val temperature = KelvinToCelciusConverter().convert(it.main.temp)
@@ -105,6 +106,7 @@ class WeatherInfoViewModel @Inject constructor(
 
         // display error view
         infoBinder.multiViewState = MultiStateView.ViewState.ERROR
+        infoBinder.weeklyItemsLoading = false
     }
 
     fun onZipCodeSubmitted(zipCode: String) {
